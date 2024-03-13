@@ -1,0 +1,47 @@
+{% extends 'layout/applayout2.html' %}
+{% block 'content' %}
+<div style="margin-left: 40%;margin-right: 20%; margin-top: 40px ;">
+    <h1 style="text-align: center;">List of Medicines Available</h1>
+    <div class="center" style="text-align: center;">
+        <table border="1" style="margin: auto; background-color:#f3f0f0 ; " class="table-hover ">
+            <tr style="background-color: rgb(145, 145, 145); color: #ffffff;"><th>Medicine_id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th colspan="2">Actions</th>
+                </tr>
+                {%for details in page_obj%}
+                <tr>
+                <td>{{ details.id }}</td>
+                <td>{{ details.name }} </td> 
+                <td>{{ details.description }}</td>
+                <td>{{ details.price }}</td>
+                <td ><a href="{%url 'editmed' details.id %}" class="btn btn-info" value="edit" type="submit">Update</a></td>
+                <td ><a href="{%url 'delmed' details.id %}" class="btn btn-danger" value="edit" type="submit">Delete</a></td>
+            </tr>
+                {% endfor %}
+        </table>
+    </div>
+        <div style="margin: auto;">
+            <nav aria-label="Page navigation example" style="margin:auto; text-align: center; color: black;">
+                {% if page_obj.has_previous %}
+                    
+                        <a href="?page=1"  style="color: black;">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}" style="color: black;" aria-label="previous">&laquo; previous</a>
+                {% endif %}
+                {% for page_number in page_obj.paginator.get_elided_page_range %}
+                    {% if page_obj.number == page_number %}
+                            <span>{{ page_number }}</span>
+                    {% else %}
+                            <a href="?page={{ page_number }}" style="color: black;">{{ page_number }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}" style="color: black;">next &raquo;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}"style="color: black;">last &raquo;</a>
+                {% endif %}
+            </nav>
+        </div>
+    
+</div>
+{% endblock %}

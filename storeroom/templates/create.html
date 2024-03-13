@@ -1,0 +1,20 @@
+{% extends 'layout/applayout2.html' %}
+{% block 'content' %}
+
+<div>
+    <div style="margin-left: 40%;margin-right: 20%; margin-top: 100px ; margin-bottom: 10px; ; padding: 10px; text-align: center; background-color: rgb(214, 212, 212);">
+        <h1 style="text-align: center;margin-bottom: 20px; margin-top: 5px;">Add Medicines</h1>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            <label style="margin-left: -3px; margin-bottom: 15px;">Name:</label>
+            {{form.name}}<br>
+            <label style="margin-left: -39px;">Description:</label>
+            {{form.description}}<br>
+            <label style="margin-top: 15px; margin-left: 6px;">Price:</label>
+            {{form.price}}<br>
+            <button class="btn btn-primary" type="submit" value="submit" style="margin: auto;margin-left: -200px; margin-top: 25px;">Submit</button>
+        </form> 
+        <form method="post" action="{%url 'home'%}">{% csrf_token %}<button class="btn btn-secondary" style="margin-top: -66px; margin-right: -200px;">Cancel</button></form>
+    </div>
+</div>
+{% endblock %}

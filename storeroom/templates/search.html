@@ -1,0 +1,27 @@
+{% extends 'layout/applayout2.html' %}
+{% block 'content' %}
+<div style="margin-left: 40%;margin-right: 20%; margin-top: 40px ;">
+    <h1 style="text-align: center;">List of Medicines Available</h1>
+    <div class="table-container" style="text-align: center;height: 69px;overflow-y:scroll; ">
+        <table border="1" style="width: 528px; background-color:#f3f0f0 ; " class="table-hover ">
+            <tr style="background-color: rgb(145, 145, 145); color: #ffffff;"><th>Medicine_id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th colspan="2">Actions</th>
+                </tr>
+                {%for details in details_list%}
+                <tr>
+                <td>{{ details.id }}</td>
+                <td>{{ details.name }} </td> 
+                <td>{{ details.description }}</td>
+                <td>{{ details.price }}</td>
+                <td ><a href="{%url 'editmed' details.id %}" class="btn btn-warning" value="edit" type="submit">Update</a></td>
+                <td ><a href="{%url 'delmed' details.id %}" class="btn btn-danger" value="edit" type="submit">Delete</a></td>
+            </tr>
+                {% endfor %}
+        </table>
+      </div>
+    
+</div>
+{% endblock %}

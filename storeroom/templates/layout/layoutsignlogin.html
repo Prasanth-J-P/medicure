@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Login Page</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style type="text/css">
+      body
+      {
+         padding: 0;
+         margin: 0;
+      }
+    @media (min-width:600px)
+    {
+     .back
+     {
+      background: linear-gradient(#49aef1,#f5f0ea);
+      width: 50%;
+      height: 100vh;
+      float: left;
+     }
+     .login
+     {
+      background: linear-gradient(#49aef1,#f5f0ea);
+      font-family: sans-serif; 
+      width: 50%;
+      height: 100vh;
+      float:right;
+      text-justify: center;
+     }  
+     .box
+     {
+      margin: 5%;
+     }
+     .input
+     {
+      line-height: 2;
+     }
+    }
+    @media (max-width:600px)
+    {
+    .login
+     {
+      font-family: sans-serif;
+      background: linear-gradient(#49aef1,#f5f0ea);; 
+      width: 100%;
+      height: 100%;
+     }  
+    .box
+     {
+      margin: 5%;
+     }
+     .input
+     {
+      line-height: 2;
+     }
+    }
+   </style>
+ </head>
+ <body>
+    <div class="login">
+      
+         {% block 'content' %}
+         {% endblock %}
+        </div>
+    </div>
+    <div class="back">
+        <div class="company" style="margin-top: 250px; font-family:fantasy  ;color: #cc0707; text-align: center; "><b><h1 style="font-size: 8vw;">MEDICURE</h1></b></div>  
+    </div>
+ </body>
+</html>

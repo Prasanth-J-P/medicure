@@ -1,0 +1,28 @@
+{% extends 'layout/layoutsignlogin.html' %}
+
+{% block 'content' %}
+<div class="box" name="loginbox" style="margin-top: 0px; padding:0px ;">
+  <div style="background-color: rgb(211, 228, 248); padding:10px; text-align: center; margin-top: 175px; padding-right: 40px; border-radius: 20px;">
+      <h1 style="color:#FF4500 ; font-family: sans-serif; text-align: center; margin-bottom: 30px;"><b>Login</b></h1>
+      <form method="post">
+          {{ form.non_field_errors }}
+          {% csrf_token %}
+          <label style="margin-left: -3px; margin-bottom: 15px;">Username:</label>
+          {{form.username}}<br>
+          {{form.username.errors}}
+          <label>Password:</label>
+          {{form.password}}<br>
+          {{form.password.errors}}
+          <button class="btn btn-primary" type="submit" style="margin-top: 15px;padding-left: 40px; padding-right: 40px;">Login</button>
+      </form><br><br>
+        <p style="text-align: center; margin-top: -35px;">New here? &ensp;<a href="{%url 'signup'%}" style="color: aqua;"><b>Sign Up</b></a></p>
+  </div>
+</div>
+<style>
+  div[name="loginbox"]{
+     
+     width: 500px;
+  }
+
+</style>
+{% endblock %}
